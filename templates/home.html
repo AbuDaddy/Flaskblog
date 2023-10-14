@@ -1,4 +1,19 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h1>Home Page</h1>
+    {% for post in posts %}
+        <div class="card mb-3">
+            <div class="card-header d-flex gap-2 align-items-center">
+                <div>
+                    <a href="#">{{ post.author }}</a>
+                </div>
+                <div>
+                    <small class="text-muted">{{ post.date_posted }}</small>
+                </div>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">{{ post.title }}</h3>
+                <p class="card-text">{{ post.content }}</p>
+            </div>
+        </div>
+    {% endfor %}
 {% endblock content%}
