@@ -67,7 +67,7 @@ def login():
             return redirect(next_page) if next_page else redirect(url_for('home'))
         else:
             flash('Check your email and password', 'danger')
-    return render_template('Login.html', title='Login', form=form)
+    return render_template('login.html', title='Login', form=form)
 
 
 @app.route('/account', methods=['GET', 'POST'])
