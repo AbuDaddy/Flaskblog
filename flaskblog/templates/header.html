@@ -12,6 +12,7 @@
                 </div>
                 <div class="navbar-nav">
                     {% if current_user.is_authenticated %}
+                        <a class="nav-link nav-item" href="{{ url_for('new_post') }}">New Post</a>
                         <a class="nav-link nav-item" href="{{ url_for('account') }}">Account</a>
                         <a class="nav-link nav-item" href="{{ url_for('logout') }}">Logout</a>
                     {% else %}

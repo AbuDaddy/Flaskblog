@@ -2,17 +2,20 @@
 {% block content %}
     {% for post in posts %}
         <div class="card mb-3">
-            <div class="card-header d-flex gap-2 align-items-center">
-                <div>
-                    <a href="#">{{ post.author }}</a>
+            <div class="row">
+                <div class="d-flex col-md-2 py-2 justify-content-center">
+                    <img src="{{ url_for('static', filename='images/' + post.author.image_file) }}" class="rounded-circle profile-img">
                 </div>
-                <div>
-                    <small class="text-muted">{{ post.date_posted }}</small>
+                <div class="col-md-10">
+                    <div class="border-bottom mb-3">
+                        <a href="#">{{ post.author.username }}</a>
+                        <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d') }}</small>
+                    </div>
+                    <div class="">
+                        <h2 class="card-title"><a href="{{ url_for('post', post_id=post.id) }}">{{ post.title }}</a></h2>
+                        <p class="card-text">{{ post.content }}</p>
+                    </div>
                 </div>
-            </div>
-            <div class="card-body">
-                <h3 class="card-title">{{ post.title }}</h3>
-                <p class="card-text">{{ post.content }}</p>
             </div>
         </div>
     {% endfor %}
